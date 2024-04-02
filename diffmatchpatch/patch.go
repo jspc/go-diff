@@ -70,6 +70,9 @@ func (p *Patch) String() string {
 	return unescaper.Replace(text.String())
 }
 
+func (p *Patch) Diffs() []Diff {
+	return p.diffs
+}
 // PatchAddContext increases the context until it is unique, but doesn't let the pattern expand beyond MatchMaxBits.
 func (dmp *DiffMatchPatch) PatchAddContext(patch Patch, text string) Patch {
 	if len(text) == 0 {
